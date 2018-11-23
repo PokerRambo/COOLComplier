@@ -65,4 +65,17 @@ I have edited 4 files:
 
 To get more information, please refer to COOL handbook.
 
- 
+ #### 2018-11-23 Code Generation finished. All tests passed.
+
+Because of hardcoding relative path in spim executable file, the grading script does not work. I've checking all the cases' output by hand and comfirm that  the  cgen passed all tests. 
+
+The error message :
+
+```
+5c5
+< Loaded: /usr/class/cs143/cool/lib/trap.handler
+---
+> Loaded: ../lib/trap.handler
+```
+
+PA5 reference: https://github.com/skyzluo/CS143-Compilers-Stanford/tree/master/PA5
