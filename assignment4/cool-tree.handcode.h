@@ -11,7 +11,6 @@
 #define yylineno curr_lineno;
 extern int yylineno;
 
-// add ...
 class Environment;
 
 inline Boolean copy_Boolean(Boolean b) {return b; }

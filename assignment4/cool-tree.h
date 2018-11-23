@@ -21,7 +21,7 @@ typedef class Program_class *Program;
 
 class Program_class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Program(); }
+   tree_node *copy()     { return copy_Program(); }
    virtual Program copy_Program() = 0;
 
 #ifdef Program_EXTRAS
@@ -35,7 +35,7 @@ typedef class Class__class *Class_;
 
 class Class__class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Class_(); }
+   tree_node *copy()     { return copy_Class_(); }
    virtual Class_ copy_Class_() = 0;
 
 #ifdef Class__EXTRAS
@@ -49,7 +49,7 @@ typedef class Feature_class *Feature;
 
 class Feature_class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Feature(); }
+   tree_node *copy()     { return copy_Feature(); }
    virtual Feature copy_Feature() = 0;
    virtual bool IsMethod() = 0;
 #ifdef Feature_EXTRAS
@@ -63,7 +63,7 @@ typedef class Formal_class *Formal;
 
 class Formal_class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Formal(); }
+   tree_node *copy()     { return copy_Formal(); }
    virtual Formal copy_Formal() = 0;
    virtual Symbol GetName() = 0;
 #ifdef Formal_EXTRAS
@@ -77,7 +77,7 @@ typedef class Expression_class *Expression;
 
 class Expression_class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Expression(); }
+   tree_node *copy()     { return copy_Expression(); }
    virtual Expression copy_Expression() = 0;
    virtual bool IsEmpty() { return false; }
 #ifdef Expression_EXTRAS
@@ -91,7 +91,7 @@ typedef class Case_class *Case;
 
 class Case_class : public tree_node {
 public:
-   tree_node *copy()		 { return copy_Case(); }
+   tree_node *copy()     { return copy_Case(); }
    virtual Case copy_Case() = 0;
 
 #ifdef Case_EXTRAS
@@ -146,7 +146,6 @@ public:
 #endif
 };
 
-//add.. attr_class
 class attr_class;
 
 // define constructor - class_
@@ -174,7 +173,6 @@ public:
 #endif
 };
 
-// add ...
 class CgenNode;
 
 // define constructor - method
@@ -193,17 +191,15 @@ public:
    }
    Feature copy_Feature();
    void dump(ostream& stream, int n);
-   // add ...
    bool IsMethod() { return true; }
    void code(ostream& stream, CgenNode* class_node);
-   int GetArgNum(){
-       int ret = 0;
-       for (int i = formals->first(); formals->more(i); i = formals->next(i)) {
+   int GetArgNum() {
+      int ret = 0;
+      for (int i = formals->first(); formals->more(i); i = formals->next(i)) {
          ++ret;
-       }
+      }
       return ret;
    }
-
 #ifdef Feature_SHARED_EXTRAS
    Feature_SHARED_EXTRAS
 #endif
@@ -321,13 +317,11 @@ public:
    }
    Expression copy_Expression();
    void dump(ostream& stream, int n);
-   
-   //add ...
-   std::vector<Expression> GetActuals(){
-       std::vector<Expression> ret;
-       for (int i = actual->first(); actual->more(i); i = actual->next(i)) {
+   std::vector<Expression> GetActuals() {
+      std::vector<Expression> ret;
+      for (int i = actual->first(); actual->more(i); i = actual->next(i)) {
          ret.push_back(actual->nth(i));
-       }
+      }
       return ret;
    }
 #ifdef Expression_SHARED_EXTRAS
@@ -353,7 +347,6 @@ public:
    }
    Expression copy_Expression();
    void dump(ostream& stream, int n);
-   // add ...
    std::vector<Expression> GetActuals() {
       std::vector<Expression> ret;
       for (int i = actual->first(); actual->more(i); i = actual->next(i)) {
@@ -428,8 +421,6 @@ public:
    }
    Expression copy_Expression();
    void dump(ostream& stream, int n);
-
-   // add ...
    std::vector<branch_class*> GetCases() {
       std::vector<branch_class*> ret;
       for (int i = cases->first(); cases->more(i); i = cases->next(i)) {
